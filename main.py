@@ -22,8 +22,19 @@ for i in range(1,11):
 
 # VISUALIZING THE ELBOW METHOD GRAPH
 plt.plot(range(1,11),data_wcss)
+plt.title("No of clusters vs WCSS")
+plt.xlabel("No of Clusters")
+plt.ylabel("WCSS")
 plt.show()
 
+# DEFINING AND TRAINING THE MODEL
+model = KMeans(n_clusters = 2, init = 'k-means++',random_state = 42)
+model.fit(x)
+y = model.predict(x)
 
+# VISUALIZING RESULTS
+plt.scatter(x[y == 0, 0], x[y == 0, 1], s = 100, color = 'blue', label = 'Cluster 1')
+plt.scatter(x[y == 1, 0], x[y == 1, 1], s = 100, color = 'green', label = 'Cluster 2')
+plt.show()
 
 
