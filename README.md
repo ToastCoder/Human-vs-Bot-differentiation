@@ -1,1 +1,1 @@
-# Human-vs-Bot-differentiation-using-K-Means
+# Human-vs-Bot-differentiation-using-SVM
