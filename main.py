@@ -7,34 +7,21 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
+from sklearn.svm import SVC
 
 # DATA SEGMENTATION
 data = pd.read_csv('data/Dataset.csv')
 x = data.iloc[:,[2,3,4,5]].values
+y = data.iloc[:,6].values
 
-# USING ELBOW METHOD TO FIND OPTIMAL NUMBER OF CLUSTERS
-data_wcss = []
-for i in range(1,11):
-    km = KMeans(n_clusters = i,init = 'k-means++',random_state = 42)
-    km.fit(x)
-    data_wcss.append(km.inertia_)
+# DEFINING AND TRAINING A MODEL
+model = SVC(kernel = 'rbf',random_state = 0)
+model.fit(x,y)
 
-# VISUALIZING THE ELBOW METHOD GRAPH
-plt.plot(range(1,11),data_wcss)
-plt.title("No of clusters vs WCSS")
-plt.xlabel("No of Clusters")
-plt.ylabel("WCSS")
+y_pred = model.predict(x)
+
+
+plt.scatter(x[y_pred == 1, 0], x[y_pred == 1, 1], s = 50, c = 'red', label = 'Humans')
+plt.scatter(x[y_pred == 0, 0], x[y_pred == 0, 1], s = 50, c = 'blue', label = 'Bots')
 plt.show()
-
-# DEFINING AND TRAINING THE MODEL
-model = KMeans(n_clusters = 2, init = 'k-means++',random_state = 42)
-model.fit(x)
-y = model.predict(x)
-
-# VISUALIZING RESULTS
-plt.scatter(x[y == 0, 0], x[y == 0, 1], s = 100, color = 'blue', label = 'Cluster 1')
-plt.scatter(x[y == 1, 0], x[y == 1, 1], s = 100, color = 'green', label = 'Cluster 2')
-plt.show()
-
 
