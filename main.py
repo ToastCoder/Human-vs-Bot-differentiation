@@ -11,7 +11,7 @@ from sklearn.svm import SVC
 
 # DATA SEGMENTATION
 data = pd.read_csv('data/Dataset.csv')
-x = data.iloc[:,[2,3,4,5]].values
+x = data.iloc[:,[3,4,5]].values
 y = data.iloc[:,6].values
 
 # DEFINING AND TRAINING A MODEL
