@@ -18,11 +18,11 @@ y = data.iloc[:,6].values
 x_train, x_val, y_train, y_val = train_test_split(x, y, test_size = 0.1, random_state = 0)
 
 # DEFINING THE NEURAL NETWORK
-model = Sequential()
-model.add(Dense(8, input_dim = 3 , activation = 'relu'))
-model.add(Dense(8, activation = 'relu'))
-model.add(Dense(8, activation = 'relu'))
-model.add(Dense(8, activation = 'relu'))
-model.add(Dense(1, activation = 'sigmoid'))
+model = tf.keras.models.Sequential()
+model.add(tf.keras.layers.Dense(8, input_dim = 3 , activation = 'relu'))
+model.add(tf.keras.layers.Dense(8, activation = 'relu'))
+model.add(tf.keras.layers.Dense(8, activation = 'relu'))
+model.add(tf.keras.layers.Dense(8, activation = 'relu'))
+model.add(tf.keras.layers.Dense(1, activation = 'sigmoid'))
 
 
