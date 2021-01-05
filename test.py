@@ -19,7 +19,7 @@ import tensorflow as tf
 
 print(f"TensorFlow version: {tf.__version__}")
 
-DATASET_PATH = 'data/custData.csv'
+DATASET_PATH = 'data/Dataset.csv'
 MODEL_PATH = './model/botModel'
 
 # DATA PREPROCESSING
@@ -31,3 +31,13 @@ y = data.iloc[:,8].values
 
 # OPENING THE TRAINED MODEL
 model = tf.keras.models.load_model(MODEL_PATH)
+
+features = ['Check Status','Captcha Attempts','No of Login Attempts','Avg Time between Attempts']
+response = []
+for i in range(len(features)):
+    response.append(float(input(f"Please mention the {features[i]}: ")))
+res = model.predict_classes([response])
+if res == 1:
+    print("It might be a Human.")
+elif res == 0:
+    print("It might be a Bot.")
