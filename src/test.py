@@ -6,10 +6,8 @@
 
 # TOPICS: Multiclass Classification, Machine Learning, TensorFlow
 
-# DISABLE TENSORFLOW DEBUG INFORMATION
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3' 
-print("TensorFlow Debugging Information is hidden.")
+os.system("cd ..")
 
 # IMPORTING REQUIRED MODULES
 import numpy as np
