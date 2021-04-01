@@ -52,7 +52,8 @@ args = parse()
 
 # DATA SEGMENTATION
 data = pd.read_csv(DATASET_PATH)
-print(data.describe())
+print("Dataset Description:\n",data.describe())
+print("Dataset Head\n",data.head())
 
 x = data.iloc[:,[4,5,6,7]].values
 y = data.iloc[:,8].values
@@ -68,19 +69,14 @@ def botModel():
     model.add(tf.keras.layers.Dense(1, activation = 'sigmoid'))
     return model
 
-# CALLBACK CLASS
-class Callback(tf.keras.callbacks.Callback): 
-    def on_epoch_end(self, epoch, logs={}): 
-        if(logs.get('accuracy') > ACC_THRESHOLD):   
-            print("Reached Threshold Accuracy, Stopping Training.")   
-            self.model.stop_training = True
+# INITITIALIZING THE CALLBACK
+early_stopping = tf.keras.callbacks.EarlyStopping(monitor = 'accuracy', mode = 'max')
 
 model = botModel()
-callback = Callback()
 
 # TRAINING THE MODEL
-model.compile(loss = 'binary_crossentropy' , optimizer = 'adam' , metrics = ['accuracy'] )
-history = model.fit(x_train,y_train , epochs = 10, batch_size = 32, validation_data=(x_val,y_val), callbacks = [callback])
+model.compile(loss = args.loss , optimizer = args.optimizer , metrics = ['accuracy'] )
+history = model.fit(x_train,y_train , epochs = args.epochs, batch_size = args.batch_size, validation_data=(x_val,y_val), callbacks = [callback])
 
 # PLOTTING THE GRAPH FOR TRAIN-LOSS AND VALIDATION-LOSS
 plt.figure(0)
