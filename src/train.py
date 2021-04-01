@@ -1,4 +1,5 @@
-  
+ #-------------------------------------------------------------------------------------------------------------------------------
+
 # HUMAN VS BOT DIFFERENTIATION
 
 # FILE NAME: train.py
@@ -7,8 +8,7 @@
 
 # TOPICS: Binary Classification, Machine Learning, TensorFlow
 
-import os
-os.system("cd ..")
+#-------------------------------------------------------------------------------------------------------------------------------
 
 # IMPORTING REQUIRED MODULES
 import numpy as np
@@ -16,12 +16,38 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from sklearn.model_selection import train_test_split
+import argparse
+
+# FUNCTION FOR PARSING ARGUMENTS
+def parse():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-e','--epochs',
+                        type = int, 
+                        default = 50, 
+                        required = False)
+
+    parser.add_argument('-bs', '--batch_size',
+                        type = int, 
+                        default = 5, 
+                        required = False)
+
+    parser.add_argument('-l','--loss',
+                        type = str, 
+                        default = 'sparse_categorical_crossentropy', 
+                        required = False)
+
+    parser.add_argument('-op','--optimizer', 
+                        type = str, 
+                        default = 'adam', 
+                        required = False)
+
+    args = parser.parse_args()
+    return args
 
 print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = 'data/Dataset.csv'
 MODEL_PATH = './model/botModel'
-ACC_THRESHOLD = 0.99
 
 # DATA SEGMENTATION
 data = pd.read_csv(DATASET_PATH)
