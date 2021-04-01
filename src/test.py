@@ -1,3 +1,5 @@
+#-------------------------------------------------------------------------------------------------------------------------------
+
 # HUMAN VS BOT DIFFERENTIATION
 
 # FILE NAME: test.py
@@ -6,8 +8,7 @@
 
 # TOPICS: Multiclass Classification, Machine Learning, TensorFlow
 
-import os
-os.system("cd ..")
+#-------------------------------------------------------------------------------------------------------------------------------
 
 # IMPORTING REQUIRED MODULES
 import numpy as np
