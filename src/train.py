@@ -48,6 +48,7 @@ print(f"TensorFlow version: {tf.__version__}")
 
 DATASET_PATH = 'data/Dataset.csv'
 MODEL_PATH = './model/botModel'
+args = parse()
 
 # DATA SEGMENTATION
 data = pd.read_csv(DATASET_PATH)
