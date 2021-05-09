@@ -8,11 +8,13 @@ The model is trained with some parameters which are helpful in identifying diffe
 
 Model accuracy of 99% is achieved while testing.
 
-## Supported Operating Systems:
-
+## Supported Operating Systems: 
 Runs on Windows, macOS and Linux
 
 ## Tested with: 
 1. Python 3.8.6 64-bit
 2. TensorFlow 2.4.1
 3. Pop OS 20.10
+
+## Developed by: 
+[Vigneshwar Ravichandar](https://github.com/ToastCoder)
