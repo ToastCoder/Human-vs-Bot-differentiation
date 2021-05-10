@@ -63,7 +63,7 @@ def parse():
     parser.add_argument('-bs','--batch_size', 
                         type = int, 
                         help = description[6],
-                        default = 32)
+                        default = 5)
     
     parser.add_argument('-l','--loss', 
                         type = str, 
