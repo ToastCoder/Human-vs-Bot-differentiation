@@ -26,6 +26,52 @@ Runs on Windows, macOS and Linux
 4. Average Time between the attempts 
 
 ### List of Classes:
-1. Human 
-2. Bot 
+1. Human (Class [0]) 
+2. Bot (Class [1]) 
+
+### Execution Instructions:  
+Execute the following command in the terminal to run with default procedure.  
+```python
+python3 main.py --test=True
+```
+
+### Command Line Arguments:
+* `-tr` (or) `--train` - Used to train the Neural Network.  
+  * **Argument type:** bool  
+  * **Parameter type:** Optional  
+  * **Default value:** False
+
+* `-t` (or) `--test` - Used to test the Neural Network with custom inputs.
+  * **Argument type:** bool  
+  * **Parameter type:** Mandatory 
+  
+* `-v` (or) `--visualize` - Used to vizualize the metrics.
+  * **Argument type:** bool  
+  * **Parameter type:** Optional
+  * **Default value:** False
+  
+* `-req` (or) `--install_requirements` - Used to install the required dependancies.
+  * **Argument type:** bool  
+  * **Parameter type:** Optional  
+  * **Default value:** False
+
+* `-e` (or) `--epochs` - Used for mentioning the number of epochs for the model.
+  * **Argument type:** int
+  * **Parameter type:** Optional
+  * **Default value:** 10
+
+* `-bs` (or) `--batch_size` - Used for mentioning the batch size for the model.
+  * **Argument type:** int
+  * **Parameter type:** Optional
+  * **Default value:** 5
+
+* `-l` (or) `--loss` - Used for mentioning the loss function for the model.
+  * **Argument type:** str
+  * **Parameter type:** Optional
+  * **Default value:** "sparse_categorical_crossentropy"
+
+* `-op` (or) `--optimizer` - Used for mentioning the optimizer for the model.
+  * **Argument type:** str
+  * **Parameter type:** Optional
+  * **Default value:** "adam"
 
