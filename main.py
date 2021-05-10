@@ -58,7 +58,7 @@ def parse():
     parser.add_argument('-e','--epochs', 
                         type = int, 
                         help = description[5],
-                        default = 20)
+                        default = 10)
 
     parser.add_argument('-bs','--batch_size', 
                         type = int, 
