@@ -23,7 +23,7 @@ def parse():
     parser = argparse.ArgumentParser()
     parser.add_argument('-e','--epochs',
                         type = int, 
-                        default = 50, 
+                        default = 10, 
                         required = False)
 
     parser.add_argument('-bs', '--batch_size',
@@ -64,19 +64,16 @@ x_train, x_val, y_train, y_val = train_test_split(x, y, test_size = 0.1, random_
 # NEURAL NETWORK FUNCTION
 def botModel():
     model = tf.keras.models.Sequential()
-    model.add(tf.keras.layers.Dense(10, input_dim = 4 , activation = 'relu'))
-    model.add(tf.keras.layers.Dense(10, activation = 'relu'))
+    model.add(tf.keras.layers.Dense(5, input_dim = 4 , activation = 'relu'))
+    model.add(tf.keras.layers.Dense(5, activation = 'relu'))
     model.add(tf.keras.layers.Dense(1, activation = 'sigmoid'))
     return model
-
-# INITITIALIZING THE CALLBACK
-early_stopping = tf.keras.callbacks.EarlyStopping(monitor = 'accuracy', mode = 'max')
 
 model = botModel()
 
 # TRAINING THE MODEL
 model.compile(loss = args.loss , optimizer = args.optimizer , metrics = ['accuracy'] )
-history = model.fit(x_train,y_train , epochs = args.epochs, batch_size = args.batch_size, validation_data=(x_val,y_val), callbacks = [callback])
+history = model.fit(x_train,y_train , epochs = args.epochs, batch_size = args.batch_size, validation_data=(x_val,y_val))
 
 # PLOTTING THE GRAPH FOR TRAIN-LOSS AND VALIDATION-LOSS
 plt.figure(0)
