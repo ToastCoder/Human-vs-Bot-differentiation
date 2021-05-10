@@ -1,6 +1,6 @@
 # Human vs Bot differentiation
 
-## About:
+### About:
 
 This code differentiates if a user is a human or a bot based on various metrics. Implemented with TensorFlow.
 
@@ -8,13 +8,24 @@ The model is trained with some parameters which are helpful in identifying diffe
 
 Model accuracy of 99% is achieved while testing.
 
-## Supported Operating Systems: 
+### Supported Operating Systems: 
 Runs on Windows, macOS and Linux
 
-## Tested with: 
+### Tested with: 
 1. Python 3.8.6 64-bit
 2. TensorFlow 2.4.1
 3. Pop OS 20.10
 
-## Developed by: 
+### Developed by: 
 [Vigneshwar Ravichandar](https://github.com/ToastCoder)
+
+### List of Features: 
+1. Check Status 
+2. Captcha Attempts
+3. Number of Login Attempts 
+4. Average Time between the attempts 
+
+### List of Classes:
+1. Human 
+2. Bot 
+
